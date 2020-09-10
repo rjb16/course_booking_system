@@ -36,7 +36,7 @@ public class BookingController {
         bookingRepository.save(booking);
         return new ResponseEntity<>(booking, HttpStatus.OK);
     }
-    
+
     @DeleteMapping(value = "/bookings/{id}")
     public ResponseEntity<List<Booking>> deleteBooking(@PathVariable Long id) {
         bookingRepository.deleteById(id);
