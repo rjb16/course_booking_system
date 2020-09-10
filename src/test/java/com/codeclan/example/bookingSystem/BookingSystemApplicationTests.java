@@ -63,4 +63,10 @@ class BookingSystemApplicationTests {
 		assertEquals("Sandy", foundCustomers.get(0).getName());
 	}
 
+	@Test
+	public void canFindCustomersByMinAgeAndTownAndCourseName() {
+		List<Customer> foundCustomers = customerRepository.findByAgeGreaterThanAndTownAndBookingsCourseName(30, "Glasgow", "Advanced JavaScript");
+		assertEquals("Juan", foundCustomers.get(0).getName());
+	}
+
 }
