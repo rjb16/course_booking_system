@@ -41,13 +41,13 @@ class BookingSystemApplicationTests {
 
 	@Test
 	public void canFindCustomersByCourseName() {
-		List<Customer> foundCustomers = customerRepository.findByBookingsCourseName("Intro Java");
+		List<Customer> foundCustomers = customerRepository.findByBookingsCourseNameIgnoreCase("Intro Java");
 		assertEquals("Sandy", foundCustomers.get(0).getName());
 	}
 
 	@Test
 	public void canFindCoursesByCustomerName() {
-		List<Course> foundCourses = courseRepository.findByBookingsCustomerName("Juan");
+		List<Course> foundCourses = courseRepository.findByBookingsCustomerNameIgnoreCase("Juan");
 		assertEquals("Advanced JavaScript", foundCourses.get(0).getName());
 	}
 
@@ -59,13 +59,13 @@ class BookingSystemApplicationTests {
 
 	@Test
 	public void canFindCustomersByTownAndCourseName() {
-		List<Customer> foundCustomers = customerRepository.findByTownAndBookingsCourseName("Edinburgh", "Intro Java");
+		List<Customer> foundCustomers = customerRepository.findByTownIgnoreCaseAndBookingsCourseNameIgnoreCase("Edinburgh", "Intro Java");
 		assertEquals("Sandy", foundCustomers.get(0).getName());
 	}
 
 	@Test
 	public void canFindCustomersByMinAgeAndTownAndCourseName() {
-		List<Customer> foundCustomers = customerRepository.findByAgeGreaterThanAndTownAndBookingsCourseName(30, "Glasgow", "Advanced JavaScript");
+		List<Customer> foundCustomers = customerRepository.findByAgeGreaterThanAndTownIgnoreCaseAndBookingsCourseNameIgnoreCase(30, "Glasgow", "Advanced JavaScript");
 		assertEquals("Juan", foundCustomers.get(0).getName());
 	}
 
