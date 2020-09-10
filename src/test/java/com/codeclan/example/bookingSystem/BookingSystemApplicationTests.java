@@ -57,4 +57,10 @@ class BookingSystemApplicationTests {
 		assertEquals(1L, foundBookings.get(0).getId().longValue());
 	}
 
+	@Test
+	public void canFindCustomersByTownAndCourseName() {
+		List<Customer> foundCustomers = customerRepository.findByTownAndBookingsCourseName("Edinburgh", "Intro Java");
+		assertEquals("Sandy", foundCustomers.get(0).getName());
+	}
+
 }
