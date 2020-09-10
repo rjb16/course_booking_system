@@ -44,4 +44,10 @@ class BookingSystemApplicationTests {
 		assertEquals("Sandy", foundCustomers.get(0).getName());
 	}
 
+	@Test
+	public void canFindCoursesByCustomerName() {
+		List<Course> foundCourses = courseRepository.findByBookingsCustomerName("Juan");
+		assertEquals("Advanced JavaScript", foundCourses.get(0).getName());
+	}
+
 }
